@@ -8,9 +8,11 @@
 local areaText
 local textSize = 25
 local myRectangle
-local widthOfRectangle = 350
-local heightOfRectangle = 200
+local widthOfRectangle = 250
+local heightOfRectangle = 100
 local areaOfRectangle
+local radiusOfCircle
+local MyCircle
 
 --set the BG colour of my screen.remember that colours are between 0 and 1.
 display.setDefault("background", 101/255, 121/255, 4/255)
@@ -45,3 +47,7 @@ areaText = display.newText("The area of this rectangle with a width of \n"..
 
 areaText.anchorX = 0
 areaText.anchorY = 0
+
+MyCircle = display.newCircle(200, 250, 57)
+MyCircle:setStrokeColor( 1, 0.5, 0 )
+MyCircle:setFillColor( 1, 1, 0)
