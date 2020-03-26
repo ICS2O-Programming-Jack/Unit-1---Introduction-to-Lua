@@ -4,9 +4,12 @@
 --ICS20
 --This program diplays a button that changes when it is clicked 
 -----------------------------------------------------------------------------------------
-display.setDefault ("background", 153/255, 204/255, 255,255)
+display.setDefault ("background", 153/255, 20/255, 255,255)
 --hide status bar
 display.setStatusBar(display.HiddenStatusBar)
+--sound variables 
+local correctSoundChannel
+local BuzzerSound = audio.loadSound( "Sounds/Buzzer.mp3")
 --create blue button, set position to make it visible
 local blueButton = display.newImageRect("Images/Fast Button Inactive@2x.png",198, 96)
 blueButton.x = display.contentWidth/2
@@ -17,7 +20,11 @@ local redButton = display.newImageRect("Images/Fast Button Active@2x.png",198, 9
 redButton.x = display.contentWidth/2
 redButton.y = display.contentHeight/2
 redButton.isVisible = false
-
+--X variable 
+local X = display.newImageRect("Images/X.png",198, 96)
+X.x = display.contentWidth/2
+X.y = 45
+X.isVisible = false
 --Create text object, set the position and make it invisible
 local textObject = display.newText ("Clicked!", 0, 0, nil, 50)
 textObject.x = display.contentWidth/2
@@ -31,11 +38,14 @@ textObject.isVisible = false
 local function BlueButtonListener(touch)
 	if (touch.phase == "began") then
 		blueButton.isVisible = false
+		X.isVisible = true
 		redButton.isVisible = true
 		textObject.isVisible = true
+		correctSoundChannel = audio.play(BuzzerSound)
 	end
 
 	if (touch.phase == "ended") then 
+		X.isVisible = false
 		blueButton.isVisible = true
 		redButton.isVisible = false
 		textObject.isVisible = false
