@@ -35,6 +35,22 @@ textObject.isVisible = false
 
 --When the blue button is clicked, it will make the text appear with the red button,
 --and make the blue button disappear
+local function RedButtonListener(touch)
+	if (touch.phase == "ended") then
+		redButton.isVisible = false
+		X.isVisible = false
+		textObject.isVisible = false
+		blueButton.isVisible = true
+	end
+	if (touch.phase == "began") then
+		redButton.isVisible = false
+		X.isVisible = false
+		textObject.isVisible = false
+		blueButton.isVisible = true
+	end
+end
+ 
+
 local function BlueButtonListener(touch)
 	if (touch.phase == "began") then
 		blueButton.isVisible = false
@@ -53,4 +69,4 @@ local function BlueButtonListener(touch)
 end
 
 blueButton:addEventListener("touch",BlueButtonListener)
-
+redButton:addEventListener("touch",RedButtonListener)
