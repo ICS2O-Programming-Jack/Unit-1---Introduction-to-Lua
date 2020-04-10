@@ -47,6 +47,10 @@ local function AskQuestion()
     else correctAnswer = randomNumber1 / randomNumber2
 	    --create question in text Object
 	 questionObject.text = randomNumber1 .. " ÷ " .. randomNumber2 .. " = "
+    correctAnswer = randomNumber1 / randomNumber2
+    correctAnswer = correctAnswer * 10
+    correctAnswer = math.round(correctAnswer)
+    correctAnswer = correctAnswer / 10 
     end
 end
 
@@ -99,7 +103,10 @@ incorrectObject = display.newText("Incorrect!", display.contentWidth/2, display.
 incorrectObject.isVisible = false
 --create numeric feild
 numericField = native.newTextField( display.contentWidth*2/3, display.contentHeight/2, 150, 80 )
-numericField.inputType = "number"
+if (randomOperator == 4) then
+ numericField.inputType = "decimal"
+else  numericField.inputType = "number"
+end
 
 --add the event listener for the numeric field 
 numericField:addEventListener( "userInput", NumericFieldListener)
