@@ -26,14 +26,6 @@ local userAnswer
 local correctAnswer
 local incorrectObject
 local gameOver
-local addrandomNumber1
-local addrandomNumber2
-local multiplyrandomNumber1
-local multiplyrandomNumber2
-local devisionrandomNumber1
-local devisionrandomNumber2
-local YouWin
-local hamster
 local heart4
 local gameOverSound = audio.loadSound("Sounds/Game Over.mp3")
 local gameOverSoundChannel
