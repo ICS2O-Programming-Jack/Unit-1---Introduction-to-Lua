@@ -23,6 +23,10 @@ local correctAnswer
 local incorrectObject
 local randomOperator
 
+local BGmusic = audio.loadSound("Sounds/BG.mp3")
+local BGmusicChannel
+BGmusicChannel = audio.play(BGmusic)
+
 local wrongSound = audio.loadSound("Sounds/beep2.mp3")
 local wrongSoundChannel
 
