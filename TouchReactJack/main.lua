@@ -8,6 +8,9 @@ display.setDefault ("background", 153/255, 20/255, 255,255)
 --hide status bar
 display.setStatusBar(display.HiddenStatusBar)
 --sound variables 
+local beepSound = audio.loadSound ("Sounds/beep.mp3")
+local beepSoundChannel
+
 local correctSoundChannel
 local BuzzerSound = audio.loadSound( "Sounds/Buzzer.mp3")
 --create blue button, set position to make it visible
@@ -41,6 +44,7 @@ local function RedButtonListener(touch)
 		X.isVisible = false
 		textObject.isVisible = false
 		blueButton.isVisible = true
+		beepSoundChannel = audio.play(beepSound)
 	end
 	if (touch.phase == "began") then
 		redButton.isVisible = false

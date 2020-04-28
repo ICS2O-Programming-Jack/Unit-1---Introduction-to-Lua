@@ -22,6 +22,14 @@ local userAnswer
 local correctAnswer
 local incorrectObject
 local randomOperator
+
+local wrongSound = audio.loadSound("Sounds/beep2.mp3")
+local wrongSoundChannel
+
+local rightSound = audio.loadSound("Sounds/beep.mp3")
+local rightSoundChannel
+
+
 -----------------------------------------------------------------------------------------
 --LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -76,10 +84,12 @@ local function NumericFieldListener( event )
 		if (userAnswer == correctAnswer) then
 			correctObject.isVisible = true
 			incorrectObject.isVisible = false
+			rightSoundChannel = audio.play(rightSound)
 			timer.performWithDelay(2020, HideCorrect)
 			--update it in the display object 
 		else incorrectObject.isVisible = true 
 			correctObject.isVisible = false
+			wrongSoundChannel = audio.play(wrongSound)
 			timer.performWithDelay(2020, HideIncorrect)
 		end
 

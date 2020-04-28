@@ -9,6 +9,10 @@
 --hide status bar
 display.setStatusBar(display.HiddenStatusBar)
 
+local howlingSound = audio.loadSound("Sounds/Howling.mp3")
+local howlingSoundChannel
+
+howlingSoundChannel = audio.play(howlingSound)
 --Global Variables
 scrollspeed = 3
 scrollRspeed = -3
