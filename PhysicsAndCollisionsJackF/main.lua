@@ -3,9 +3,9 @@
 -- ICS20
 --Jack Fiander
 -----------------------------------------------------------------------------------------
+
 -- hides the status bar
 display.setStatusBar(display.HiddenStatusBar)
-
 -- load physics
 local physics = require("physics")
 

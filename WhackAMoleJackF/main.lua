@@ -64,7 +64,6 @@ function Whacked( event )
 	if (event.phase == "began") then
 		points = points + 1 
 		pointsText.text = "Score = " .. points 
-		--pointsText = display.newImage("Score = " .. points)
 	end
 end
 --add points for when its touched
